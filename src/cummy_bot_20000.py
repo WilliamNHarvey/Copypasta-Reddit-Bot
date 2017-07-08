@@ -4,7 +4,7 @@ import praw
 import datetime
 
 def login():
-    reddit = praw.Reddit('reddit_script_template')
+    reddit = praw.Reddit('cummy_bot_20000')
     return reddit
 
 def run(r):
