@@ -1,11 +1,6 @@
-#Call this using a crontab on your server with the following settings to run once per minute:
-#* * * * * cd ~/python/reddit_script_template/src; python reddit_script_template.py
-
-#If you don't own a server, consider using vagrant https://www.vagrantup.com/intro/getting-started/
-#* * * * * cd /vagrant/reddit_script_template/src; python reddit_script_template.py
+#* * * * * cd ~/python/CummyBot20000/src; python cummy_bot_20000.py
 
 import praw
-import re
 import datetime
 
 def login():
@@ -14,7 +9,7 @@ def login():
 
 def run(r):
     copypasta = r.subreddit("copypasta")
-    localSub = r.subreddit("copypasta")
+    localSub = r.subreddit("redditscripttemplate")
 
     #Checks the top 5 posts in the "new" category in the subreddit
     num_posts_to_check = 5
