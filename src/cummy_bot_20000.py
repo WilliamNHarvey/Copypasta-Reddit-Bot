@@ -2,6 +2,7 @@
 
 import praw
 import datetime
+from time import sleep
 
 def login():
     reddit = praw.Reddit('cummy_bot_20000')
@@ -28,10 +29,16 @@ def run(r):
             #base case of no response would then occur when search query is most basic ie one word
             #not searching with the body because the query can be too big
             responseText = ''
-            for result in copypasta.search(title):
-                if (result.selftext != body):
-                    responseText = result.selftext
+            i = 0
+            while(responseText == '' and i <= 5):
+                for result in copypasta.search(title):
+                    if (responseText == '' and result.selftext and result.selftext != body):
+                        responseText = result.selftext
+                        break
+                i += 1
+                if(responseText == ''):
+                    sleep(2)
 
-            submission.add_comment(responseText);
+            submission.reply(responseText)
 
 run(login())
