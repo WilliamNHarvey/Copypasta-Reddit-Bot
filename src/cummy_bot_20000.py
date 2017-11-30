@@ -14,6 +14,7 @@ def run():
         time_now = datetime.datetime.utcnow()
         submission_time = datetime.datetime.utcfromtimestamp(submission.created_utc)
         time_since = int((time_now - submission_time).total_seconds())
+        submitted = 0
         if time_since < 29 and submission not in a: #change according to frequency script is run
             a.append(submission)
             title = submission.title
@@ -35,7 +36,9 @@ def run():
                         break
                     if leave == 0:
                         try:
-                            submission.reply(result.selftext.encode("utf8"))
+                            if submitted == 0:
+                              submitted = 1
+                              submission.reply(result.selftext.encode("utf8"))
                         except:
                             break
                     time.sleep(1)
