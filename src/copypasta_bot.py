@@ -2,8 +2,10 @@ import praw
 import datetime
 import time
 
-r = praw.Reddit('bot_name')
+r = praw.Reddit('copypasta_bot')
+#Sub copypasta bot will collect copypastas from
 copypasta = r.subreddit("copypasta")
+#Sub copypasta bot will post in
 localSub = r.subreddit("copypasta")
 a = []
 botName = "BOT_NAME"
