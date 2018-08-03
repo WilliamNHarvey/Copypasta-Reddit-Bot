@@ -2,10 +2,11 @@ import praw
 import datetime
 import time
 
-r = praw.Reddit('cummy_bot_20000')
+r = praw.Reddit('bot_name')
 copypasta = r.subreddit("copypasta")
 localSub = r.subreddit("copypasta")
 a = []
+botName = "BOT_NAME"
 
 def run():
     #Checks the top 10 posts in the "new" category in the subreddit
@@ -29,7 +30,7 @@ def run():
                 if result.selftext.encode("utf8") != '' and result.selftext.encode("utf8") != body.encode("utf8") and len(result.selftext.encode("utf8")) <= 10000:
                     leave = 0
                     for comment in submission.comments:
-                        if comment.author == "CummyBot20000":
+                        if comment.author == botName:
                             leave = 1
                             break
                     if leave == 1:
